@@ -2,6 +2,7 @@ var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
 const { hiscores } = require('osrs-json-api');
+const calcs = require('./BotComponents/calculations');
 
 //configure logger settings
 logger.remove(logger.transports.Console);
@@ -57,7 +58,7 @@ function getPlayer(channelID, userName, skillType) {
     .getPlayer(userName)
     .then((res) => {
       try {
-        var messageResponse = userName + "'s " + skillType.charAt(0).toUpperCase() + skillType.slice(1) + " Skill Records \n**Rank:** " + res.skills[skillType].rank + "\n**Level:** " + res.skills[skillType].level + "\n**XP:** " + res.skills[skillType].xp;
+        var messageResponse = userName + "'s " + skillType.charAt(0).toUpperCase() + skillType.slice(1) + " Skill Records \n**Rank:** " + formatNumberValues(res.skills[skillType].rank) + "\n**Level:** " + res.skills[skillType].level + "\n**XP:** " + res.skills[skillType].xp;
         bot.sendMessage({
           to: channelID,
           message: messageResponse
