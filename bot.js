@@ -57,8 +57,9 @@ function getPlayer(channelID, userName, skillType) {
   hiscores
     .getPlayer(userName)
     .then((res) => {
+      console.log(calcs.formatNumberValues(res.skills[skillType].rank));
       try {
-        var messageResponse = userName + "'s " + skillType.charAt(0).toUpperCase() + skillType.slice(1) + " Skill Records \n**Rank:** " + formatNumberValues(res.skills[skillType].rank) + "\n**Level:** " + res.skills[skillType].level + "\n**XP:** " + res.skills[skillType].xp;
+        var messageResponse = userName + "'s " + skillType.charAt(0).toUpperCase() + skillType.slice(1) + " Skill Records \n**Rank:** " + calcs.formatNumberValues(res.skills[skillType].rank) + "\n**Level:** " + calcs.formatNumberValues(res.skills[skillType].level) + "\n**XP:** " + calcs.formatNumberValues(res.skills[skillType].xp);
         bot.sendMessage({
           to: channelID,
           message: messageResponse

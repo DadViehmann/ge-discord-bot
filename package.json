@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node bot.js"
   },
-  "type": "module",
   "author": "Pasc4l",
   "dependencies": {
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
