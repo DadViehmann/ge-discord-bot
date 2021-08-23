@@ -1,8 +1,10 @@
 var Discord = require('discord.io');
 var logger = require('winston');
-// var auth = require('./auth.json');
+var auth = require('./auth.json');
 const { hiscores } = require('osrs-json-api');
 const calcs = require('./BotComponents/calculations');
+
+require('dotenv').config();
 
 //configure logger settings
 logger.remove(logger.transports.Console);
@@ -13,7 +15,8 @@ logger.level = 'debug';
 
 //Initialize discord bot
 var bot = new Discord.Client({
-  token: process.env.BOT_ID,
+  token: process.env.CLIENT_TOKEN,
+  // token: auth.token,
   autorun: true
 });
 

@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node bot.js"
   },
-  "author": "Pasc4l",
+  "author": "Cameron Viehmann",
   "dependencies": {
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.6",
-    "osrs-json-api": "^1.4.1",
+    "osrs-json-api": "^1.4.5",
     "winston": "^3.3.3"
   }
 }
